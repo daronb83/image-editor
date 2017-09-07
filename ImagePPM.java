@@ -33,6 +33,28 @@ public class ImagePPM {
   }
 
   /**
+  * Returns the Pixel found at (x,y)
+  * @param x the pixel's x coordinate
+  * @param y the pixel's y coordinate
+  * @return Pixel the pixel found at (x,y)
+  */
+  public Pixel getPixel(int x, int y) {
+
+  }
+
+  /**
+  * Replaces a pixel at (x,y)
+  * @param x the pixel's x coordinate
+  * @param y the pixel's y coordinate
+  * @param pixel the pixel to insert into the image at (x,y)
+  * @return boolean true if the replacement is successful, false if x or y
+  * are not valid coordinates
+  */
+  public boolean setPixel(int x, int y, Pixel pixel) {
+
+  }
+
+  /**
   * @return a string correctly formatted as a PPM image file, ready for writing
   * to file
   */

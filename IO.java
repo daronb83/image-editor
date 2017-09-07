@@ -14,7 +14,7 @@ public class IO {
   * @return The ppm image stored as an ImagePPM object
   */
   public ImagePPM scanImage(String inputFile) {
-    return new IMagePPM (0,0,0);
+    return new IMagePPM (0,0);
   }
 
   /**
