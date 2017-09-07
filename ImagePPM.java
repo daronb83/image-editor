@@ -1,4 +1,4 @@
-package ieditor;
+package iedit;
 
 /**
 * Stores a PPM image

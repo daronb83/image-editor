@@ -1,4 +1,4 @@
-package ieditor;
+package iedit;
 import java.util.Scanner;
 import java.io.File;
 

@@ -1,4 +1,4 @@
-package ieditor;
+package iedit;
 
 /**
 * Represents an RGB value
