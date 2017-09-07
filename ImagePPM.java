@@ -78,13 +78,21 @@ public class ImagePPM {
     for (int i = 0; i < height; i++) {
       for (int j = 0; j < width; j++) {
         output.append(img[i][j].getRed());
-        output.append(" ");
+        output.append("\n");
         output.append(img[i][j].getGreen());
-        output.append(" ");
+        output.append("\n");
         output.append(img[i][j].getBlue());
         output.append("\n");
       }
     }
     return output.toString();
+  }
+
+  public int getWidth() {
+    return width;
+  }
+
+  public int getHeight() {
+    return height;
   }
 }
