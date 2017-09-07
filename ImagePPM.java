@@ -7,7 +7,7 @@ import java.lang.StringBuilder;
 */
 public class ImagePPM {
 
-  private int height, width, X, Y;
+  private int height, width, x, y;
   private Pixel[][] img;
 
   /**
@@ -17,8 +17,8 @@ public class ImagePPM {
   public ImagePPM (int height, int width) {
     this.height = height;
     this.width = width;
-    X = Y = 0;
-    img = new Pixel[height][width];
+    x = y = 0;
+    img = new Pixel[width][height];
   }
 
   /**
@@ -31,14 +31,11 @@ public class ImagePPM {
   */
   public void pushRGB(int red, int green, int blue) {
     Pixel pixel = new Pixel(red, green, blue);
-    img[X][Y] = pixel;
-    X++;
-    Y++;
-    if (X == width) {
-      X = 0;
-    }
-    if (Y == height) {
-      Y = 0;
+    img[x][y] = pixel;
+    x++;
+    if (x == width) {
+      x = 0;
+      y++;
     }
   }
 
@@ -72,6 +69,22 @@ public class ImagePPM {
   */
   @Override
   public String toString() {
-    return "";
+    StringBuilder output = new StringBuilder();
+    output.append("P3\n");
+    output.append(height);
+    output.append(" ");
+    output.append(width);
+    output.append("\n255\n");
+    for (int i = 0; i < width; i++) {
+      for (int j = 0; j < height; j++) {
+        output.append(img[i][j].getRed());
+        output.append(" ");
+        output.append(img[i][j].getGreen());
+        output.append(" ");
+        output.append(img[i][j].getBlue());
+        output.append("\n");
+      }
+    }
+    return output.toString();
   }
 }

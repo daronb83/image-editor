@@ -19,20 +19,73 @@ public class IO {
 
     File file = new File(inputFile);
 
+    boolean needHeader = true;
+    boolean needMax = true;
+    boolean needImage = true;
+    int height = 0;
+    int width = 0;
+    int red = -1;
+    int green = -1;
+    int blue = -1;
+    ImagePPM image = new ImagePPM(0,0);
+
     try {
       Scanner scanner = new Scanner(file);
 
-      while (scanner.hasNext()){
-        System.out.println(scanner.next());
-      }
+      while (scanner.hasNext()) {
+        String next = scanner.next();
 
+        // skip comments
+        while (next.indexOf('#') >= 0) {
+          scanner.nextLine();
+          if (scanner.hasNext()) {
+            next = scanner.next();
+          }
+          else {
+            next = "";
+          }
+        }
+
+        // collect header information
+        if (needImage) {
+          if (needHeader) {
+            needHeader = false;
+          }
+          else if (width == 0) {
+            width = Integer.parseInt(next);
+          }
+          else if (height == 0) {
+            height = Integer.parseInt(next);
+            image = new ImagePPM(height, width);
+          }
+          else if (needMax) {
+            needMax = false;
+            needImage = false;
+          }
+        }
+
+        // load pixels
+        else {
+          if (red < 0) {
+            red = Integer.parseInt(next);
+          }
+          else if (green < 0) {
+            green = Integer.parseInt(next);
+          }
+          else if (blue < 0) {
+            blue = Integer.parseInt(next);
+            image.pushRGB(red, green, blue);
+            red = green = blue = -1;
+          }
+        }
+      }
       scanner.close();
     }
     catch (FileNotFoundException e){
       e.printStackTrace();
     }
 
-    return new ImagePPM (0,0);
+    return image;
   }
 
   /**
@@ -41,7 +94,7 @@ public class IO {
   * @param outputFile the path/filename to write to
   */
   public void writeImage(ImagePPM image, String outputFile) {
-
+    System.out.println(image.toString());
   }
 
 }
