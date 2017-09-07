@@ -41,7 +41,10 @@ public class ImageEditor {
     System.out.println("Wrote " + args[effectType] + " image to " + args[outputFile]);
   }
 
-
+  /**
+  * validates args[] for correct input
+  * @param args the Commandline arguments array from main(String[] args)
+  */
   private static void validateArgs(String[] args) {
     int effectType = 2;
 

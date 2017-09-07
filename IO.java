@@ -34,7 +34,7 @@ public class IO {
       while (scanner.hasNext()) {
         String next = scanner.next();
 
-        // skip comments
+        // skips to the next line if the current word contains '#'
         while (next.indexOf('#') >= 0) {
           scanner.nextLine();
           if (scanner.hasNext()) {
@@ -45,7 +45,7 @@ public class IO {
           }
         }
 
-        // collect header information
+        // save word as header information, if still needed
         if (needImage) {
           if (needHeader) {
             needHeader = false;
@@ -63,7 +63,7 @@ public class IO {
           }
         }
 
-        // load pixels
+        // save word as pixel component if header is complete
         else {
           if (red < 0) {
             red = Integer.parseInt(next);
