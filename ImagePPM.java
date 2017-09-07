@@ -14,11 +14,11 @@ public class ImagePPM {
   * @param height the height of the image in pixels
   * @param width the width of the image in pixels
   */
-  public ImagePPM (int height, int width) {
-    this.height = height;
+  public ImagePPM (int width, int height) {
     this.width = width;
+    this.height = height;
     x = y = 0;
-    img = new Pixel[width][height];
+    img = new Pixel[height][width];
   }
 
   /**
@@ -31,7 +31,7 @@ public class ImagePPM {
   */
   public void pushRGB(int red, int green, int blue) {
     Pixel pixel = new Pixel(red, green, blue);
-    img[x][y] = pixel;
+    img[y][x] = pixel;
     x++;
     if (x == width) {
       x = 0;
@@ -46,7 +46,7 @@ public class ImagePPM {
   * @return Pixel the pixel found at (x,y)
   */
   public Pixel getPixel(int x, int y) {
-    return img[x][y];
+    return img[y][x];
   }
 
   /**
@@ -59,7 +59,7 @@ public class ImagePPM {
   */
   public void setPixel(int x, int y, Pixel pixel) {
     if (x > 0 && x < width && y > 0 && y < height) {
-      img[x][y] = pixel;
+      img[y][x] = pixel;
     }
   }
 
@@ -71,12 +71,12 @@ public class ImagePPM {
   public String toString() {
     StringBuilder output = new StringBuilder();
     output.append("P3\n");
-    output.append(height);
-    output.append(" ");
     output.append(width);
+    output.append(" ");
+    output.append(height);
     output.append("\n255\n");
-    for (int i = 0; i < width; i++) {
-      for (int j = 0; j < height; j++) {
+    for (int i = 0; i < height; i++) {
+      for (int j = 0; j < width; j++) {
         output.append(img[i][j].getRed());
         output.append(" ");
         output.append(img[i][j].getGreen());

@@ -1,7 +1,6 @@
 package iedit;
 import java.util.Scanner;
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 
 
 /**
@@ -27,7 +26,7 @@ public class IO {
     int red = -1;
     int green = -1;
     int blue = -1;
-    ImagePPM image = new ImagePPM(0,0);
+    ImagePPM image = null;
 
     try {
       Scanner scanner = new Scanner(file);
@@ -56,7 +55,7 @@ public class IO {
           }
           else if (height == 0) {
             height = Integer.parseInt(next);
-            image = new ImagePPM(height, width);
+            image = new ImagePPM(width, height);
           }
           else if (needMax) {
             needMax = false;
@@ -94,7 +93,23 @@ public class IO {
   * @param outputFile the path/filename to write to
   */
   public void writeImage(ImagePPM image, String outputFile) {
-    System.out.println(image.toString());
+    BufferedWriter writer = null;
+
+    try {
+      writer = new BufferedWriter(new FileWriter(outputFile));
+      writer.write(image.toString());
+    }
+    catch (IOException e) {
+      e.printStackTrace();
+    }
+    finally {
+      try {
+        writer.close( );
+      }
+      catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
   }
 
 }
