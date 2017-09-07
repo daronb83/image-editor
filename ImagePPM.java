@@ -16,8 +16,8 @@ public class ImagePPM {
   public ImagePPM (int height, int width) {
     this.height = height;
     this.width = width;
-    x = y = 0;
-    Pixel[][] = new Pixel[height][width];
+    X = Y = 0;
+    img = new Pixel[height][width];
   }
 
   /**
@@ -28,8 +28,17 @@ public class ImagePPM {
   * @return true if the pixel was pushed successfully, false if the image is
   * full or if one of the values is not between 0 and 255
   */
-  public boolean pushRGB(int red, int blue, int green) {
-    return false;
+  public void pushRGB(int red, int green, int blue) {
+    Pixel pixel = new Pixel(red, green, blue);
+    img[X][Y] = pixel;
+    X++;
+    Y++;
+    if (X == width) {
+      X = 0;
+    }
+    if (Y == height) {
+      Y = 0;
+    }
   }
 
   /**
@@ -39,7 +48,7 @@ public class ImagePPM {
   * @return Pixel the pixel found at (x,y)
   */
   public Pixel getPixel(int x, int y) {
-
+    return img[x][y];
   }
 
   /**
@@ -50,8 +59,10 @@ public class ImagePPM {
   * @return boolean true if the replacement is successful, false if x or y
   * are not valid coordinates
   */
-  public boolean setPixel(int x, int y, Pixel pixel) {
-
+  public void setPixel(int x, int y, Pixel pixel) {
+    if (x > 0 && x < width && y > 0 && y < height) {
+      img[x][y] = pixel;
+    }
   }
 
   /**

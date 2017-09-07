@@ -1,6 +1,4 @@
 package iedit;
-import java.util.Scanner;
-import java.io.File;
 
 /**
 * Handles reading and writing of ppm images
@@ -14,7 +12,7 @@ public class IO {
   * @return The ppm image stored as an ImagePPM object
   */
   public ImagePPM scanImage(String inputFile) {
-    return new IMagePPM (0,0);
+    return new ImagePPM (0,0);
   }
 
   /**
