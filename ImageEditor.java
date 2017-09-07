@@ -38,7 +38,7 @@ public class ImageEditor {
 
     // 4. Write image
     io.writeImage(image, args[outputFile]);
-    System.out.println("Output " + args[effectType] + "image to " + args[outputFile]);
+    System.out.println("Wrote " + args[effectType] + " image to " + args[outputFile]);
   }
 
 

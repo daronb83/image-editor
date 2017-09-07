@@ -1,4 +1,8 @@
 package iedit;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+
 
 /**
 * Handles reading and writing of ppm images
@@ -12,6 +16,22 @@ public class IO {
   * @return The ppm image stored as an ImagePPM object
   */
   public ImagePPM scanImage(String inputFile) {
+
+    File file = new File(inputFile);
+
+    try {
+      Scanner scanner = new Scanner(file);
+
+      while (scanner.hasNext()){
+        System.out.println(scanner.next());
+      }
+
+      scanner.close();
+    }
+    catch (FileNotFoundException e){
+      e.printStackTrace();
+    }
+
     return new ImagePPM (0,0);
   }
 

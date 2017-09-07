@@ -14,7 +14,7 @@ public class Pixel {
   * @param green the green value
   * @param blue the blue value
   */
-  public Pixel(int red, int blue, int green) {
+  public Pixel(int red, int green, int blue) {
     this.red = red;
     this.green = green;
     this.blue = blue;
@@ -26,7 +26,7 @@ public class Pixel {
   * @param green the green value
   * @param blue the blue value
   */
-  public void setRGB(int red, int blue, int green) {
+  public void setRGB(int red, int green, int blue) {
     this.red = red;
     this.green = green;
     this.blue = blue;
