@@ -77,13 +77,18 @@ public class Effect {
           thisBlur = image.getWidth() - w;
         }
 
-        for (int k = 0; k < thisBlur - 1; k++){
-          averageRed += image.getPixel(w+k,h).getRed();
-          averageGreen += image.getPixel(w+k,h).getGreen();
-          averageBlue += image.getPixel(w+k,h).getBlue();
+        if (thisBlur <= 1){
+          temp.pushRGB(image.getPixel(w,h).getRed(), image.getPixel(w,h).getRed(), image.getPixel(w,h).getRed());
         }
+        else {
+          for (int k = 0; k < thisBlur - 1; k++){
+            averageRed += image.getPixel(w+k,h).getRed();
+            averageGreen += image.getPixel(w+k,h).getGreen();
+            averageBlue += image.getPixel(w+k,h).getBlue();
+          }
 
-        temp.pushRGB(averageRed/thisBlur, averageGreen/thisBlur, averageBlue/thisBlur);
+          temp.pushRGB(averageRed/thisBlur, averageGreen/thisBlur, averageBlue/thisBlur);
+        }  
       }
     }
     return temp;
