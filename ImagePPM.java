@@ -55,7 +55,7 @@ public class ImagePPM {
   * are not valid coordinates
   */
   public void setPixel(int x, int y, Pixel pixel) {
-    if (x > 0 && x < width && y > 0 && y < height) {
+    if (x >= 0 && x < width && y >= 0 && y < height) {
       img[y][x] = pixel;
     }
   }

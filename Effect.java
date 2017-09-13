@@ -62,29 +62,31 @@ public class Effect {
   * @param image the image to convert
   * @param blurLength the number of pixels that affect each pixel
   */
-  public void motionblur(ImagePPM image, int blurLength) {
-    for (int i = image.getWidth() - 1; i >= 0; i--) {
-      for (int j = image.getHeight() - 1; j >= 0; j--) {
+  public ImagePPM motionblur(ImagePPM image, int blurLength) {
+    ImagePPM temp = new ImagePPM(image.getWidth(), image.getHeight());
+
+    for (int h  = 0; h  < image.getHeight(); h++) {
+      for (int w = 0; w < image.getWidth(); w++) {
+
         int averageRed = 0;
         int averageGreen = 0;
         int averageBlue = 0;
         int thisBlur = blurLength;
 
-        if (thisBlur + i > image.getWidth()){
-          thisBlur = image.getWidth() - i;
+        if (thisBlur + w > image.getWidth()){
+          thisBlur = image.getWidth() - w;
         }
 
-        for (int k = 0; k < thisBlur; k++){
-          averageRed += image.getPixel(i+k,j).getRed();
-          averageGreen += image.getPixel(i+k,j).getGreen();
-          averageBlue += image.getPixel(i+k,j).getBlue();
+        for (int k = 0; k < thisBlur - 1; k++){
+          averageRed += image.getPixel(w+k,h).getRed();
+          averageGreen += image.getPixel(w+k,h).getGreen();
+          averageBlue += image.getPixel(w+k,h).getBlue();
         }
 
-        image.getPixel(i,j).setRed(averageRed/thisBlur);
-        image.getPixel(i,j).setGreen(averageGreen/thisBlur);
-        image.getPixel(i,j).setBlue(averageBlue/thisBlur);
+        temp.pushRGB(averageRed/thisBlur, averageGreen/thisBlur, averageBlue/thisBlur);
       }
     }
+    return temp;
   }
 
 }

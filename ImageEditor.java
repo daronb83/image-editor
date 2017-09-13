@@ -30,7 +30,7 @@ public class ImageEditor {
         break;
 
       case "motionblur" :
-        effect.motionblur(image, Integer.parseInt(args[blurLength]));
+        image = effect.motionblur(image, Integer.parseInt(args[blurLength]));
         break;
     }
 
