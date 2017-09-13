@@ -82,10 +82,10 @@ public class Effect {
         }
         else {
           for (int k = 0; k < thisBlur; k++){
-            if (w == 0 && h == 0){
+            /*if (w == 0 && h == 0){
               System.out.print("(" + w + "," + h + ") ");
               System.out.println(image.getPixel(w+k,h).getRed() + "," + image.getPixel(w+k,h).getGreen() + "," + image.getPixel(w+k,h).getBlue());
-            }
+            } */
             averageRed += image.getPixel(w+k,h).getRed();
             averageGreen += image.getPixel(w+k,h).getGreen();
             averageBlue += image.getPixel(w+k,h).getBlue();
