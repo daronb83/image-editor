@@ -1,6 +1,3 @@
-package iedit;
-import java.lang.StringBuilder;
-
 /**
 * Stores a PPM image
 * @author Daron Barnes

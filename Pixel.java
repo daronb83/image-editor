@@ -1,5 +1,3 @@
-package iedit;
-
 /**
 * Represents an RGB value
 * @author Daron Barnes

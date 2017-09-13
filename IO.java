@@ -1,7 +1,5 @@
-package iedit;
 import java.util.Scanner;
-import java.io.*;
-
+import java.io.*; 
 
 /**
 * Handles reading and writing of ppm images

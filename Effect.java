@@ -1,5 +1,3 @@
-package iedit;
-
 public class Effect {
 
   /**
