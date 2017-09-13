@@ -78,7 +78,7 @@ public class Effect {
         }
 
         if (thisBlur <= 1){
-          temp.pushRGB(image.getPixel(w,h).getRed(), image.getPixel(w,h).getRed(), image.getPixel(w,h).getRed());
+          temp.pushRGB(image.getPixel(w,h).getRed(), image.getPixel(w,h).getGreen(), image.getPixel(w,h).getBlue());
         }
         else {
           for (int k = 0; k < thisBlur - 1; k++){
@@ -88,7 +88,7 @@ public class Effect {
           }
 
           temp.pushRGB(averageRed/thisBlur, averageGreen/thisBlur, averageBlue/thisBlur);
-        }  
+        }
       }
     }
     return temp;
