@@ -67,10 +67,10 @@ public class Pixel {
   */
   public void setRed(int red) {
     if (red < 0) {
-      red = 0;
+      this.red = 0;
     }
     else if (red > 255) {
-      red = 255;
+      this.red = 255;
     }
     else {
       this.red = red;
@@ -83,10 +83,10 @@ public class Pixel {
   */
   public void setGreen(int green) {
     if (green < 0) {
-      green = 0;
+      this.green = 0;
     }
     else if (green > 255) {
-      green = 255;
+      this.green = 255;
     }
     else {
       this.green = green;
@@ -99,10 +99,10 @@ public class Pixel {
   */
   public void setBlue(int blue) {
     if (blue < 0) {
-      blue = 0;
+      this.blue = 0;
     }
     else if (blue > 255) {
-      blue = 255;
+      this.blue = 255;
     }
     else {
       this.blue = blue;
