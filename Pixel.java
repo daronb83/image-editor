@@ -1,3 +1,5 @@
+package ieditor;
+
 /**
 * Represents an RGB value
 * @author Daron Barnes
